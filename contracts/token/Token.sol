@@ -100,8 +100,8 @@ contract Token is IToken, AgentRoleUpgradeable, TokenStorage {
     function init(
         address _identityRegistry,
         address _compliance,
-        string memory _name,
-        string memory _symbol,
+        string calldata _name,
+        string calldata _symbol,
         uint8 _decimals,
         // _onchainID can be zero address if not set, can be set later by owner
         address _onchainID
