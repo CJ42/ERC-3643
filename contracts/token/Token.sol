@@ -112,7 +112,7 @@ contract Token is IToken, AgentRoleUpgradeable, TokenStorage {
         require(owner() == address(0), 'already initialized');
         require(_identityRegistry != address(0) && _compliance != address(0), 'invalid argument - zero address');
         require(bytes(_name).length > 0 && bytes(_symbol).length > 0, 'invalid argument - empty string');
-        require(0 <= _decimals && _decimals <= 18, 'decimals between 0 and 18');
+        require(_decimals <= 18, 'decimals between 0 and 18');
         __Ownable_init();
         _tokenName = _name;
         _tokenSymbol = _symbol;
