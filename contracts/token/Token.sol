@@ -128,7 +128,9 @@ contract Token is IToken, AgentRoleUpgradeable, TokenStorage {
         _tokenPaused = true;
         setIdentityRegistry(_identityRegistry);
         setCompliance(_compliance);
-        emit UpdatedTokenInformation(_tokenName, _tokenSymbol, _tokenDecimals, _TOKEN_VERSION, _tokenOnchainID);
+
+        // pass function arguments to reduce gas cost and avoid re-reading from storage
+        emit UpdatedTokenInformation(_name, _symbol, _decimals, _TOKEN_VERSION, _onchainID);
     }
 
     /**
